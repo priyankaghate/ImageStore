@@ -10,20 +10,23 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :memories %><br>
-    <%= f.text_area :memories %>
-  </div>
-  <div class="field">
-    <%= f.label :picture %><br>
-    <%= f.file_field :picture %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="form-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :memories %><br>
+        <%= f.text_area :memories, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :picture %><br>
+        <%= f.file_field :picture %>
+      </div>
+      <div class="form-group">
+        <%= f.submit %>
+      </div>
+    </div>
   </div>
 <% end %>
