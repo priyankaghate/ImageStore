@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @my_image.name %>
+</p>
+
+<p>
+  <strong>Memories:</strong>
+  <%= @my_image.memories %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@my_image.picture_url, :width => 600) if@my_image.picture.present? %>
+</p>
+
+<%= link_to 'Edit', edit_my_image_path(@my_image) %> |
+<%= link_to 'Back', my_images_path %>
