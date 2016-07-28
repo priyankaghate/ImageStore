@@ -17,7 +17,7 @@
       <tr>
         <td><%= my_image.name %></td>
         <td><%= my_image.memories %></td>
-        <td><%= my_image.picture %></td>
+        <td><%=image_tag(my_image.picture_url, :width => 100) if my_image.picture.present? %></td>
         <td><%= link_to 'Show', my_image %></td>
         <td><%= link_to 'Edit', edit_my_image_path(my_image) %></td>
         <td><%= link_to 'Destroy', my_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>

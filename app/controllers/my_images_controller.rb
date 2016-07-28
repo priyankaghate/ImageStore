@@ -1,6 +1,6 @@
 class MyImagesController < ApplicationController
   before_action :set_my_image, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /my_images
   # GET /my_images.json
   def index
@@ -14,7 +14,7 @@ class MyImagesController < ApplicationController
 
   # GET /my_images/new
   def new
-    @my_image = MyImage.new
+    @my_image = current_user.my_images.new
   end
 
   # GET /my_images/1/edit
@@ -24,7 +24,7 @@ class MyImagesController < ApplicationController
   # POST /my_images
   # POST /my_images.json
   def create
-    @my_image = MyImage.new(my_image_params)
+    @my_image = current_user.my_images.new(my_image_params)
 
     respond_to do |format|
       if @my_image.save
