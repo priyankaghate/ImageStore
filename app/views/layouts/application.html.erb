@@ -18,30 +18,32 @@
 	    <%= link_to "Home", root_path%>
 	   </div>
 	   <div class="collapse navbar-collapse" id="myCollapse">
-	   	
+
 	   	 <%if user_signed_in? %>
-	   	 <ul class="nav navbar-nav push-right">
+	   	 <ul class="nav navbar-nav pull-right">
 	   	  <li><%=link_to 'Add Image', new_my_image_path%></li>
 	   	  <li><%=link_to 'Account', edit_user_registration_path%></li>
 	   	  <li><%=link_to 'Sign_out', destroy_user_session_path, method: :delete%></li>
 	   	  </ul>
 	   	 <%else%>
-	   	  <ul class="nav navbar-nav push-right">
-	   	  <li><%=link_to 'Sign_Up', new_user_session_path%></li>
+	   	  <ul class="nav navbar-nav pull-right">
+	   	  <li><%=link_to 'Sign_Up', new_user_registration_path, class: "signup"%></li>
 	   	  <li><%=link_to 'Sign_In', new_user_session_path%></li>
 	   	  </ul>
 	   	 <%end%>
-	   	
+	   	 <ul class="nav navbar-nav pull-right">
+	   	  <li><%=link_to 'Gallary', my_images_path%></li>
+	   	 </ul>
 	   </div>
 	 </div>
 	</header>
-	<div class="container" id="main">
+	<!--<div class="container" id="main">-->
  	 <%flash.each do |name, msg|%>
  	  <%=content_tag(:div, msg, class:"alert alert-#{name}")%>
  	 <%end%>
  	 <div class="col-sm-12 center-block">
 	 <%= yield %>
 	 </div>
-	</div>
+	<!--</div>-->
 </body>
 </html>

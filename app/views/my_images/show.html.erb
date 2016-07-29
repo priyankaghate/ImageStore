@@ -1,19 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default center-block">
+	<div class="panel-heading">
+		<strong><%= @my_image.name %></strong>
+	</div>
+	<div class="panel-body">
+		<p>
+		  <strong>Memories:</strong>
+		  <%= @my_image.memories %>
+		</p><hr>
 
-<p>
-  <strong>Name:</strong>
-  <%= @my_image.name %>
-</p>
+		<p>
+		  <%= image_tag(@my_image.picture_url, :width => 600) if@my_image.picture.present? %>
+		</p>
+	</div>
+	<div class="panel-footer">
+	  <%if user_signed_in?%>
+		<%= link_to 'Edit', edit_my_image_path(@my_image), class: "btn btn-default" %>
+	  <%end%>
+		<%= link_to 'Back', my_images_path, class: "btn btn-default" %>
+	</div>
+</div>
 
-<p>
-  <strong>Memories:</strong>
-  <%= @my_image.memories %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag(@my_image.picture_url, :width => 600) if@my_image.picture.present? %>
-</p>
-
-<%= link_to 'Edit', edit_my_image_path(@my_image) %> |
-<%= link_to 'Back', my_images_path %>

@@ -15,3 +15,15 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+body{
+	background-color: #d6dbdf;
+}
+.jumbotron{
+	background-image: url("/sea_view.jpg");
+    color: white;
+}
+.navbar-default {
+    background-color: #d6eaf8
+;
+    color:#f4d03f ;
+}
